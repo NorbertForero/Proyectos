@@ -1,13 +1,14 @@
 {
-  "name": "App1",
-  "version": "1.0.0",
-  "description": "",
+  "name": "node-express",
+  "version": "0.0.1",
+  "description": "Rest Api",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Norbert Forero",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,6 +25,6 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.15"
   }
 }
