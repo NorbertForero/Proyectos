@@ -1,0 +1,20 @@
+{
+  "name": "app-express",
+  "version": "1.0.0",
+  "description": "Rest Api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "Norbert Forero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
