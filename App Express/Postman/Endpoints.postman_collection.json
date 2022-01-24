@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "11341068-d993-478a-a63d-5e875ae45e89",
+		"name": "Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Estudiar 3\",\n    \"description\":\"Tercera tarea\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/hello",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/taskFilter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"taskFilter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/task/61e7a17abeaf82dc3e8d577c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"task",
+								"61e7a17abeaf82dc3e8d577c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Estudiar 2\",\n    \"description\":\"Tercera tareas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/task/61e7a17abeaf82dc3e8d577c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"task",
+								"61e7a17abeaf82dc3e8d577c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/task/61e79e01070c7c6ca31a0acb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"task",
+								"61e79e01070c7c6ca31a0acb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Heroku",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Estudiar 3\",\n    \"description\":\"4 tarea\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/task",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/hello",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/task",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/taskFilter",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"taskFilter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/task/61e7a17abeaf82dc3e8d577c",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"61e7a17abeaf82dc3e8d577c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Estudiar 2\",\n    \"description\":\"Tercera tareas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/task/61e7a17abeaf82dc3e8d577c",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"61e7a17abeaf82dc3e8d577c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/task/61ee1ba739154d697ca9136b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"61ee1ba739154d697ca9136b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
