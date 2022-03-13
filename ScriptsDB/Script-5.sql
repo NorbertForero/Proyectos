@@ -1,1 +1,0 @@
-SELECT id, country_id, `type`, code, amount, type_use, minimum_order_amount, maximum_order_amount , payment_method, expiration_date FROM coupons c 
