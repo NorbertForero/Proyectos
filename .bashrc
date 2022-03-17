@@ -478,7 +478,7 @@ function bashrc_update() {
   cd && 
   cd proyectos/ && 
   git commit -a -m "Ajustes bash" && 
-  git push origin master &&
+  git push origin main &&
   cd 
 }
 
