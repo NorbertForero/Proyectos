@@ -472,6 +472,14 @@ alias ssh_dashboard_workers='infra-ec2-dashboard worker ssh'
 alias ssh_ads_api='infra-ec2-ads-api web ssh'
 alias ssh_ads_api_workers='infra-ec2-ads-api worker ssh'
 
-alias up_bash="cd && cp -r .bashrc /home/nf/proyectos/ && cd && cd proyectos/ && git commit -a -m "Ajustes bash" && git push"
+function bashrc_update() {
+  cd && 
+  cp -r .bashrc /home/nf/proyectos/ && 
+  cd && 
+  cd proyectos/ && 
+  git commit -a -m "Ajustes bash" && 
+  git push origin master &&
+  cd 
+}
 
 alias permisos_docker='sudo setfacl --modify user:nf:rw /var/run/docker.sock'PS1=${PS1::-3}'${MERQUEO_ENV:+(\[\033[0;91m\]$MERQUEO_ENV\[\033[00m\])}$ '
