@@ -1,8 +1,8 @@
 
 
-#SELECT * FROM banners where	id in (21634, 21629, 24990, 21634, 21637, 21638,19615);
+SELECT * FROM banners where	id in (21634, 21629, 24990, 21634, 21637, 21638,19615);
 
-
+SELECT * FROM banners b where category = 'Video'
 
 #Actualizar posicion de banners actuales
 

@@ -16,3 +16,11 @@ SELECT * FROM sh
 
 
 select * from story_channels sc where story_id =6656
+
+SELECT id FROM shelves WHERE status = 1 AND department_id in (SELECT id FROM departments d WHERE status = 1 AND store_id=63)
+
+SELECT * FROM departments d WHERE status = 1 and store_id = 63
+
+
+
+
