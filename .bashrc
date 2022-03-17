@@ -482,4 +482,6 @@ function bashrc_update() {
   cd 
 }
 
-alias permisos_docker='sudo setfacl --modify user:nf:rw /var/run/docker.sock'PS1=${PS1::-3}'${MERQUEO_ENV:+(\[\033[0;91m\]$MERQUEO_ENV\[\033[00m\])}$ '
+alias permisos_docker='sudo setfacl --modify user:nf:rw /var/run/docker.sock'
+
+#PS1=${PS1::-3}'${MERQUEO_ENV:+(\[\033[0;91m\]$MERQUEO_ENV\[\033[00m\])}$ '
