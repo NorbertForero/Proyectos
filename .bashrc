@@ -232,11 +232,17 @@ function validateSquad() {
     
     if [ -n "${sd-unset}" ]    
     then
-      sd=squad-$1
-      echo -e $sd
-
+      SUB='squad'
+      if [[ "$sd" == *"$SUB"* ]]; 
+        then
+          sds=$1
+          echo -e $sds
+        else
+          sd=squad-$1
+          echo -e $sd
+      fi
     else
-        if [ -n "${MERQUEO_ENV-unset}" ]    
+      if [ -n "${MERQUEO_ENV-unset}" ]    
         then
           sd=squad-227
           echo -e $sd
@@ -244,7 +250,7 @@ function validateSquad() {
           sd=${MERQUEO_ENV}
           echo -e $sd
 
-        fi
+      fi
     fi
 }
 
@@ -273,6 +279,7 @@ function deploy_infratools() {
   export s=$(validateSquad $1) &&
   echo $s
   squadNum $s &&
+  curl -fsSL https://static.merqueo.com/binaries/localpipeline/installer.sh | bash &&
   cd &&
   cd merqueo/infrastructure-tools &&
   git pull origin master &&
@@ -310,19 +317,19 @@ function deploy_ec2_all() {
 }
 
 function deploy_ec2_web() {
-	git checkout $r && 
+	git checkout $1 && 
   echo -e "\n" &&
   git branch &&
-	git pull origin $r &&
+	git pull origin $1 &&
   echo -e "\n" &&
 	localpipeline -runner deploy-ec2-web 
 }
 
 function deploy_run_deploy() {
 	git branch &&
-	git checkout $r &&
+	git checkout $1 &&
   git branch &&
-	git pull origin $r &&
+	git pull origin $1 &&
 	localpipeline -runner deploy
 }
 
@@ -420,6 +427,7 @@ function deploy_all() {
   deploy_transport_api $2 &&
   deploy_payments $2 &&
   deploy_inventory $2 &&
+  deploy_web $2 &&
   deploy_ads_api $2 &&
   deploy_ads_web $2 &&
   deploy_bucket &&
@@ -429,18 +437,19 @@ function deploy_all() {
 
 function deploy_on_squad() {
   export S=$(validateSquad $1)
+  echo $S
   echo -e "\n${green}Prendiendo el ${NC}${blue}$S${NC}\n" &&
   squadNum $S &&
-  deploy_receta $s &&
-  deploy_envvars $s &&
-  deploy_all $1
+  deploy_receta $S &&
+  deploy_envvars $S &&
+  deploy_all $S
   cd &&
-  echo -e "\n${green}Finalizo el despliegue de todo el ${Red}squad-$s${NC}\n"
+  echo -e "\n${green}Finalizo el despliegue de todo el ${Red}$S${NC}\n"
 }
 
 function deploy_envvars() {
   export s=$(validateSquad $1)
-  echo -e "\n${green}Desplegando variables de entorno para el ${Red}squad-$s${NC}\n" && 
+  echo -e "\n${green}Desplegando variables de entorno para el ${Red}$s${NC}\n" && 
   infra-envvars-all 
 }
 
@@ -462,6 +471,9 @@ function deploy_catalogo() {
 
 alias tunnel_mysql='echo -e "\n${green}Tunnel ${Red}${MERQUEO_ENV}${NC}\n" && infra-tunnels mysql open '
 alias tunnel_mysql_close='infra-tunnels mysql close'
+
+alias tunnel_documentdb_prime='echo -e "\n${green}Tunnel documentdb-prime ${Red}${MERQUEO_ENV}${NC}\n" && infra-tunnels documentdb-prime open && autorizer_documentdb_prime'
+alias autorizer_documentdb_prime='mongo --ssl --sslAllowInvalidCertificates 'mongodb://merqueo_dev:M3rqueo.Dev@localhost:9995''
 
 alias ssh_www_v2_api='infra-ec2-www-v2-api web ssh'
 alias ssh_www_v2_api_workers='infra-ec2-www-v2-api worker ssh'
