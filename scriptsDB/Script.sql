@@ -23,3 +23,5 @@ SELECT * FROM shelves s
 SELECT * from cities
 
 SELECT * FROM countries c 
+
+SELECT * FROM user_credit_cards WHERE user_id = (SELECT id from users WHERE email = 'nforero@merqueo.com');L

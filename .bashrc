@@ -416,6 +416,32 @@ function deploy_web() {
   cd
 }
 
+function deploy_product_services() {
+  export r=$(validateRama $1)
+  echo -e "\n${green}Despliegue de deploy_product_services con${NC} ${blue}$r${NC}\n" &&
+  cd $REPOS_INFRA/merqueo-product-services/ &&
+  git reset --hard &&
+  deploy_run_deploy $r
+  echo -e "\n${green}Finalizo Despliegue de deploy_product_services con${NC} ${blue}$r${NC}\n" &&
+  cd
+}
+
+function deploy_prime() {
+  infra-lambdas-purge &&
+  export r=$(validateRama $1) &&
+  echo -e "\n${green}Despliegue de deploy_product_services con${NC} ${blue}$r${NC}\n" &&
+  cd $REPOS_INFRA/merqueo-product-services/ &&
+  git reset --hard &&
+  git branch &&
+	git checkout $r &&
+  git branch &&
+	git pull origin $1 &&
+  cp -r $REPOS_INFRA/Makefile $REPOS_INFRA/merqueo-product-services/
+	localpipeline -runner deploy
+  echo -e "\n${green}Finalizo Despliegue de deploy_product_services con${NC} ${blue}$r${NC}\n" &&
+  cd
+}
+
 function deploy_all() {
   export S=$(validateSquad $1)
   echo -e "\n${green}Despliegue de todo en el ${NC} ${blue}$S${NC}\n" &&
@@ -472,7 +498,7 @@ function deploy_catalogo() {
 alias tunnel_mysql='echo -e "\n${green}Tunnel ${Red}${MERQUEO_ENV}${NC}\n" && infra-tunnels mysql open '
 alias tunnel_mysql_close='infra-tunnels mysql close'
 
-alias tunnel_documentdb_prime='echo -e "\n${green}Tunnel documentdb-prime ${Red}${MERQUEO_ENV}${NC}\n" && infra-tunnels documentdb-prime open && autorizer_documentdb_prime'
+alias tunnel_documentdb_prime='echo -e "\n${green}Tunnel documentdb-prime ${Red}${MERQUEO_ENV}${NC}\n" && infra-tunnels documentdb-prime open'
 alias autorizer_documentdb_prime='mongo --ssl --sslAllowInvalidCertificates 'mongodb://merqueo_dev:M3rqueo.Dev@localhost:9995''
 
 alias ssh_www_v2_api='infra-ec2-www-v2-api web ssh'

@@ -21,6 +21,7 @@ SELECT id FROM shelves WHERE status = 1 AND department_id in (SELECT id FROM dep
 
 SELECT * FROM departments d WHERE status = 1 and store_id = 63
 
+SELECT * FROM dni_types dt 
 
 
 
