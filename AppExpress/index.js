@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const app = require("./app");
-const port = process.env.PORT || 3977;
+const port = process.env.PORT || 3000;
 const urlMongoDB =
-  "mongodb+srv://nf:Stevengalan@clusternf.ih7gw.mongodb.net/dbmongo";
+  "mongodb+srv://nf:Stevengalan@clusternf.ih7gw.mongodb.net/?retryWrites=true&w=majority";
 
 //Database mongo
 mongoose.connect(
